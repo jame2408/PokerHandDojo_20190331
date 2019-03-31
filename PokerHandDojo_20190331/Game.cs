@@ -51,5 +51,10 @@ namespace PokerHandDojo_20190331
             }
             return $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
         }
+
+        public bool IsSameHandType(HandType firstHandType, HandType secondHandType)
+        {
+            return firstHandType == secondHandType;
+        }
     }
 }

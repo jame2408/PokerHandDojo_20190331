@@ -32,5 +32,14 @@ namespace PokerHandDojo_20190331
             var actual = game.Result();
             Assert.AreEqual("James Win, Full House.", actual);
         }
+
+        [TestMethod]
+        public void can_parse_HandType_is_difference_return_fasle()
+        {
+            var game = new Game();
+            var actul = game.IsSameHandType(HandType.FourOfAKind, HandType.FullHouse);
+
+            Assert.IsFalse(actul);
+        }
     }
 }
