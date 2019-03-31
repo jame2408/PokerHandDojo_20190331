@@ -1,9 +1,15 @@
 using System;
+using System.Collections.Generic;
 
 namespace PokerHandDojo_20190331
 {
     public class Card
     {
+        //private Dictionary<string, int> _map = new Dictionary<string, int>()
+        //{
+        //    {"J", 11}
+        //};
+
         public Card(string card)
         {
             Rank = Int32.Parse(card.Substring(1));

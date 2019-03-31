@@ -32,11 +32,19 @@ namespace PokerHandDojo_20190331
             var card = new Card("D3");
             Assert.AreEqual(card.Suit, SuitType.Diamond);
         }
+
         [TestMethod]
         public void can_parse_suit_Club()
         {
             var card = new Card("C3");
             Assert.AreEqual(card.Suit, SuitType.Club);
         }
+
+        //[TestMethod]
+        //public void can_parse_rank_J()
+        //{
+        //    var card = new Card("CJ");
+        //    Assert.AreEqual(card.Rank, 11);
+        //}
     }
 }
