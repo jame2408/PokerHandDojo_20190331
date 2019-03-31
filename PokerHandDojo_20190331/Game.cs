@@ -58,10 +58,5 @@ namespace PokerHandDojo_20190331
         {
             return 0;
         }
-
-        public bool IsSameHandType(HandType firstHandType, HandType secondHandType)
-        {
-            return firstHandType == secondHandType;
-        }
     }
 }
