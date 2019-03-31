@@ -4,8 +4,9 @@ namespace PokerHandDojo_20190331
     {
         public Card(string card)
         {
-            
-
+            Rank = 3;
         }
+
+        public int Rank { get; set; }
     }
 }
