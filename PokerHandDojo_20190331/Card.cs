@@ -20,6 +20,10 @@ namespace PokerHandDojo_20190331
                 case 'D':
                     Suit = SuitType.Diamond;
                     break;
+
+                case 'C':
+                    Suit = SuitType.Club;
+                    break;
             }
         }
 
@@ -31,6 +35,7 @@ namespace PokerHandDojo_20190331
     {
         Spade,
         Heart,
-        Diamond
+        Diamond,
+        Club
     }
 }
