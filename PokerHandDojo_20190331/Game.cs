@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PokerHandDojo_20190331
@@ -7,6 +8,12 @@ namespace PokerHandDojo_20190331
     {
         private string _firstPlayerName;
         private Hand _firstPlayerHand;
+
+        private Dictionary<HandType, string> _handTypeLookup = new Dictionary<HandType, string>
+            {
+                {HandType.FourOfAKind,"Four of a kind" }
+            }
+            ;
 
         public void SetFirstPlayerName(string name)
         {
@@ -30,7 +37,7 @@ namespace PokerHandDojo_20190331
 
         public string Result()
         {
-            return $"{_firstPlayerName} Win, Four of a kind.";
+            return $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
         }
     }
 }
