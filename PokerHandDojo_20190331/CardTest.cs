@@ -25,5 +25,12 @@ namespace PokerHandDojo_20190331
             var card = new Card("H3");
             Assert.AreEqual(card.Suit, SuitType.Heart);
         }
+
+        [TestMethod]
+        public void can_parse_suit_Diamond()
+        {
+            var card = new Card("D3");
+            Assert.AreEqual(card.Suit, SuitType.Diamond);
+        }
     }
 }

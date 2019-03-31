@@ -16,6 +16,10 @@ namespace PokerHandDojo_20190331
                 case 'H':
                     Suit = SuitType.Heart;
                     break;
+
+                case 'D':
+                    Suit = SuitType.Diamond;
+                    break;
             }
         }
 
@@ -26,6 +30,7 @@ namespace PokerHandDojo_20190331
     public enum SuitType
     {
         Spade,
-        Heart
+        Heart,
+        Diamond
     }
 }
