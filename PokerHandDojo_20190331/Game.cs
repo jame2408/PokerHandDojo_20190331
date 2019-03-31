@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 namespace PokerHandDojo_20190331
 {
     public class Game
@@ -15,6 +18,8 @@ namespace PokerHandDojo_20190331
 
         public void SetFirstPlayerHand(string hand)
         {
+            hand.Split(",", StringSplitOptions.RemoveEmptyEntries)
+                .Select(card => new Card(card));
         }
 
         public void SetSecondPlayerHand(string hand)

@@ -18,5 +18,20 @@ namespace PokerHandDojo_20190331
             var actual = game.Result();
             Assert.AreEqual("James Win, Four of a kind.", actual);
         }
+
+        [Ignore]
+        [TestMethod]
+        public void fullHouse_is_bigger_than_highCard()
+        {
+            var game = new Game();
+            game.SetFirstPlayerName("James");
+            game.SetSecondPlayerName("Duncan");
+
+            game.SetFirstPlayerHand("H2,D2,C2,S3,D3");
+            game.SetSecondPlayerHand("D4,S6,S7,S8,S9");
+
+            var actual = game.Result();
+            Assert.AreEqual("James Win, Full House.", actual);
+        }
     }
 }
