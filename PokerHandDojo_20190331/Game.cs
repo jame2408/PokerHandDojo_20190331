@@ -42,19 +42,44 @@ namespace PokerHandDojo_20190331
 
         public string Result()
         {
-            if (_firstPlayerHand.HandType != _secondPlayerHand.HandType)
+            if (IsSameHandType(_firstPlayerHand.HandType, _secondPlayerHand.HandType) == false)
             {
-                if (_firstPlayerHand.HandType == HandType.FourOfAKind)
+                int winner = new HandTypeComparer().Compare(_firstPlayerHand.HandType, _secondPlayerHand.HandType);
+
+                if (winner > 0)
                 {
-                    return $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
+                    return
+                        $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
                 }
             }
+
             return $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
+        }
+
+        private int HindTypeCompare(HandType firstHandType, HandType secondHandType)
+        {
+            return 0;
         }
 
         public bool IsSameHandType(HandType firstHandType, HandType secondHandType)
         {
             return firstHandType == secondHandType;
+        }
+    }
+
+    public class HandTypeComparer : IComparer<HandType>
+    {
+        public int Compare(HandType x, HandType y)
+        {
+            return 1;
+            if (x == HandType.FourOfAKind && y == HandType.FullHouse)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }

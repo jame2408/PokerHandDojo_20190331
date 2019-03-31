@@ -34,6 +34,20 @@ namespace PokerHandDojo_20190331
         }
 
         [TestMethod]
+        public void furOfAKind_is_bigger_than_fullHouse()
+        {
+            var game = new Game();
+            game.SetFirstPlayerName("James");
+            game.SetSecondPlayerName("Duncan");
+
+            game.SetFirstPlayerHand("S2,H2,D2,C2,S3");
+            game.SetSecondPlayerHand("H2,D2,C2,S3,D3");
+
+            var actual = game.Result();
+            Assert.AreEqual("James Win, Four of a kind.", actual);
+        }
+
+        [TestMethod]
         public void can_parse_HandType_is_difference_return_fasle()
         {
             var game = new Game();
