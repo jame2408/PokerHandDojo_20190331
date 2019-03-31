@@ -7,29 +7,34 @@ namespace PokerHandDojo_20190331
     {
         public Hand(IEnumerable<Card> cards)
         {
-            
             var cardGroup = cards.GroupBy(x => x.Rank);
-
 
             if (cardGroup.Any(x => x.Count() == 4))
             {
                 HandType = HandType.FourOfAKind;
             }
-            else
+            else if (IsFullHouse(cardGroup))
             {
                 HandType = HandType.FullHouse;
             }
-            
-
-
+            else
+            {
+                HandType = HandType.HighCard;
+            }
         }
 
-        public HandType HandType { get ; set; }
+        private static bool IsFullHouse(IEnumerable<IGrouping<int, Card>> cardGroup)
+        {
+            return cardGroup.Any(x => x.Count() == 3) && cardGroup.Any(x => x.Count() == 2);
+        }
+
+        public HandType HandType { get; set; }
     }
 
     public enum HandType
     {
         FourOfAKind,
-        FullHouse
+        FullHouse,
+        HighCard
     }
 }

@@ -47,8 +47,24 @@ namespace PokerHandDojo_20190331
             Assert.AreEqual("James Win, Four of a kind.", actual);
         }
 
+        [Ignore]
+        [TestMethod]
+        public void fullHouse_is_bigger_than_threeOfAKind()
+        {
+            var game = new Game();
+            game.SetFirstPlayerName("James");
+            game.SetSecondPlayerName("Duncan");
+
+            game.SetFirstPlayerHand("H2,D2,C2,S3,D3");
+            game.SetSecondPlayerHand("H3,D3,C3,S4,D5");
+
+            var actual = game.Result();
+            Assert.AreEqual("James Win, Full House.", actual);
+        }
+
         [TestMethod]
         public void can_parse_HandType_is_difference_return_fasle()
+
         {
             var game = new Game();
             var actul = game.IsSameHandType(HandType.FourOfAKind, HandType.FullHouse);

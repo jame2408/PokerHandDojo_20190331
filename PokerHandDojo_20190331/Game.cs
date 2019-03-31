@@ -42,18 +42,15 @@ namespace PokerHandDojo_20190331
 
         public string Result()
         {
-            if (IsSameHandType(_firstPlayerHand.HandType, _secondPlayerHand.HandType) == false)
-            {
-                int winner = new HandTypeComparer().Compare(_firstPlayerHand.HandType, _secondPlayerHand.HandType);
+            int winner = new HandTypeComparer().Compare(_firstPlayerHand.HandType, _secondPlayerHand.HandType);
 
-                if (winner > 0)
-                {
-                    return
-                        $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
-                }
+            if (winner > 0)
+            {
+                return
+                    $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
             }
 
-            return $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
+            throw new NotImplementedException();
         }
 
         private int HindTypeCompare(HandType firstHandType, HandType secondHandType)

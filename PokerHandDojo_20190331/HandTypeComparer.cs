@@ -10,7 +10,9 @@ namespace PokerHandDojo_20190331
             {
                 {HandType.FourOfAKind, 9 },
                 {HandType.FullHouse, 8 },
+                {HandType.HighCard, 1 },
             };
+
             return priorityLookup[x] - priorityLookup[y];
         }
     }
