@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Xml;
-using Newtonsoft.Json.Linq;
 
 namespace PokerHandDojo_20190331
 {
@@ -25,6 +23,6 @@ namespace PokerHandDojo_20190331
             HandType = HandType.HighCard;
         }
 
-        public HandType HandType { get; set; }
+        public HandType HandType { get; }
     }
 }
