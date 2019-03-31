@@ -63,13 +63,13 @@ namespace PokerHandDojo_20190331
         }
 
         [TestMethod]
-        public void can_parse_HandType_is_difference_return_fasle()
+        public void can_parse_HandType_is_difference_return_false()
 
         {
             var game = new Game();
-            var actul = game.IsSameHandType(HandType.FourOfAKind, HandType.FullHouse);
+            var actual = game.IsSameHandType(HandType.FourOfAKind, HandType.FullHouse);
 
-            Assert.IsFalse(actul);
+            Assert.IsFalse(actual);
         }
     }
 }
