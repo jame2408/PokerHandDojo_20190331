@@ -4,7 +4,7 @@ namespace PokerHandDojo_20190331
 {
     public class HandTypeComparer : IComparer<HandType>
     {
-        private Dictionary<HandType, int> _priorityLookup = new Dictionary<HandType, int>
+        private readonly Dictionary<HandType, int> _priorityLookup = new Dictionary<HandType, int>
         {
             {HandType.FourOfAKind, 9 },
             {HandType.FullHouse, 8 },

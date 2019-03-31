@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
+using System.Xml;
+using Newtonsoft.Json.Linq;
 
 namespace PokerHandDojo_20190331
 {
@@ -7,38 +8,23 @@ namespace PokerHandDojo_20190331
     {
         public Hand(IEnumerable<Card> cards)
         {
-            if (new FourOfAKindMatcher().Match(cards))
+            var matchers = new IHandKindMatcher[]
             {
-                HandType = HandType.FourOfAKind;
-                return;
-            }
-            var cardGroup = cards.GroupBy(x => x.Rank);
-            if (cardGroup.Any(x => x.Count() == 3) && cardGroup.Any(x => x.Count() == 2))
+                new HandKindMatcher(),
+                new FullHouseMatcher(),
+            };
+            foreach (var matcher in matchers)
             {
-                HandType = HandType.FullHouse;
+                if (matcher.Match(cards))
+                {
+                    HandType = matcher.HandType;
+                    return;
+                }
             }
-            else
-            {
-                HandType = HandType.HighCard;
-            }
+
+            HandType = HandType.HighCard;
         }
 
         public HandType HandType { get; set; }
-    }
-
-    public class FourOfAKindMatcher
-    {
-        public bool Match(IEnumerable<Card> cards)
-        {
-            var cardGroup = cards.GroupBy(x => x.Rank);
-            return cardGroup.Any(x => x.Count() == 4);
-        }
-    }
-
-    public enum HandType
-    {
-        FourOfAKind,
-        FullHouse,
-        HighCard
     }
 }
