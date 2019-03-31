@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PokerHandDojo_20190331
@@ -6,6 +7,7 @@ namespace PokerHandDojo_20190331
     public class Game
     {
         private string _firstPlayerName;
+        private Hand _firstPlayerHand;
 
         public void SetFirstPlayerName(string name)
         {
@@ -18,8 +20,9 @@ namespace PokerHandDojo_20190331
 
         public void SetFirstPlayerHand(string hand)
         {
-            hand.Split(",", StringSplitOptions.RemoveEmptyEntries)
+            var cards = hand.Split(",", StringSplitOptions.RemoveEmptyEntries)
                 .Select(card => new Card(card));
+            _firstPlayerHand = new Hand(cards);
         }
 
         public void SetSecondPlayerHand(string hand)
@@ -29,6 +32,14 @@ namespace PokerHandDojo_20190331
         public string Result()
         {
             return $"{_firstPlayerName} Win, Four of a kind.";
+        }
+    }
+
+    public class Hand
+    {
+        public Hand(IEnumerable<Card> cards)
+        {
+            throw new NotImplementedException();
         }
     }
 }

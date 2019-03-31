@@ -5,32 +5,18 @@ namespace PokerHandDojo_20190331
 {
     public class Card
     {
-        //private Dictionary<string, int> _map = new Dictionary<string, int>()
-        //{
-        //    {"J", 11}
-        //};
+        private Dictionary<char, SuitType> _suitLookup = new Dictionary<char, SuitType>()
+        {
+            {'S', SuitType.Spade},
+            {'D', SuitType.Diamond},
+            {'C', SuitType.Club},
+            {'H', SuitType.Heart},
+        };
 
         public Card(string card)
         {
-            Rank = Int32.Parse(card.Substring(1));
-            switch (card[0])
-            {
-                case 'S':
-                    Suit = SuitType.Spade;
-                    break;
-
-                case 'H':
-                    Suit = SuitType.Heart;
-                    break;
-
-                case 'D':
-                    Suit = SuitType.Diamond;
-                    break;
-
-                case 'C':
-                    Suit = SuitType.Club;
-                    break;
-            }
+            Rank = int.Parse(card.Substring(1));
+            Suit = _suitLookup[card[0]];
         }
 
         public int Rank { get; set; }
