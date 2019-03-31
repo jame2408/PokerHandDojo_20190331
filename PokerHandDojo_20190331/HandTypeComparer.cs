@@ -4,16 +4,16 @@ namespace PokerHandDojo_20190331
 {
     public class HandTypeComparer : IComparer<HandType>
     {
+        private Dictionary<HandType, int> _priorityLookup = new Dictionary<HandType, int>
+        {
+            {HandType.FourOfAKind, 9 },
+            {HandType.FullHouse, 8 },
+            {HandType.HighCard, 1 },
+        };
+
         public int Compare(HandType x, HandType y)
         {
-            var priorityLookup = new Dictionary<HandType, int>
-            {
-                {HandType.FourOfAKind, 9 },
-                {HandType.FullHouse, 8 },
-                {HandType.HighCard, 1 },
-            };
-
-            return priorityLookup[x] - priorityLookup[y];
+            return _priorityLookup[x] - _priorityLookup[y];
         }
     }
 }

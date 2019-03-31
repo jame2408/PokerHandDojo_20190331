@@ -42,7 +42,8 @@ namespace PokerHandDojo_20190331
 
         public string Result()
         {
-            int winner = new HandTypeComparer().Compare(_firstPlayerHand.HandType, _secondPlayerHand.HandType);
+            int winner = new HandTypeComparer()
+                .Compare(_firstPlayerHand.HandType, _secondPlayerHand.HandType);
 
             if (winner > 0)
             {

@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace PokerHandDojo_20190331
 {
     [TestClass]
-    public class PokerHandTest
+    public class GameTest
     {
         [TestMethod]
         public void fourOfAKind_is_bigger_than_highCard()

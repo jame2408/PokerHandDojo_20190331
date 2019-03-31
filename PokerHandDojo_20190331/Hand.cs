@@ -7,13 +7,13 @@ namespace PokerHandDojo_20190331
     {
         public Hand(IEnumerable<Card> cards)
         {
-            var cardGroup = cards.GroupBy(x => x.Rank);
-
-            if (cardGroup.Any(x => x.Count() == 4))
+            if (new FourOfAKindMatcher().Match(cards))
             {
                 HandType = HandType.FourOfAKind;
+                return;
             }
-            else if (IsFullHouse(cardGroup))
+            var cardGroup = cards.GroupBy(x => x.Rank);
+            if (cardGroup.Any(x => x.Count() == 3) && cardGroup.Any(x => x.Count() == 2))
             {
                 HandType = HandType.FullHouse;
             }
@@ -23,12 +23,16 @@ namespace PokerHandDojo_20190331
             }
         }
 
-        private static bool IsFullHouse(IEnumerable<IGrouping<int, Card>> cardGroup)
-        {
-            return cardGroup.Any(x => x.Count() == 3) && cardGroup.Any(x => x.Count() == 2);
-        }
-
         public HandType HandType { get; set; }
+    }
+
+    public class FourOfAKindMatcher
+    {
+        public bool Match(IEnumerable<Card> cards)
+        {
+            var cardGroup = cards.GroupBy(x => x.Rank);
+            return cardGroup.Any(x => x.Count() == 4);
+        }
     }
 
     public enum HandType
