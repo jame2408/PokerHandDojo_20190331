@@ -8,7 +8,7 @@ namespace PokerHandDojo_20190331
         private const string FourOfAKindCase = "S2,H2,C2,D2,H3";
         private const string HighCardCase = "D4,S6,S7,S8,S9";
         private const string FullHouseCase = "H2,D2,C2,S3,D3";
-        private Game _game = new Game();
+        private readonly Game _game = new Game();
 
         [TestMethod]
         public void fourOfAKind_is_bigger_than_highCard()

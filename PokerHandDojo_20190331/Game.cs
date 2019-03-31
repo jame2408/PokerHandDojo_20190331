@@ -9,7 +9,7 @@ namespace PokerHandDojo_20190331
         private string _firstPlayerName;
         private Hand _firstPlayerHand;
 
-        private Dictionary<HandType, string> _handTypeLookup = new Dictionary<HandType, string>
+        private readonly Dictionary<HandType, string> _handTypeLookup = new Dictionary<HandType, string>
             {
                 {HandType.FourOfAKind,"Four of a kind" },
                 {HandType.FullHouse,"Full House" }
@@ -42,7 +42,7 @@ namespace PokerHandDojo_20190331
 
         public string Result()
         {
-            int winner = new HandTypeComparer()
+            var winner = new HandTypeComparer()
                 .Compare(_firstPlayerHand.HandType, _secondPlayerHand.HandType);
 
             if (winner > 0)
