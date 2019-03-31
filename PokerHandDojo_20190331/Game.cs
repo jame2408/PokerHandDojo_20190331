@@ -53,10 +53,5 @@ namespace PokerHandDojo_20190331
 
             throw new NotImplementedException();
         }
-
-        private int HindTypeCompare(HandType firstHandType, HandType secondHandType)
-        {
-            return 0;
-        }
     }
 }
