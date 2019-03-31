@@ -10,7 +10,7 @@ namespace PokerHandDojo_20190331
         {
             var matchers = new IHandKindMatcher[]
             {
-                new HandKindMatcher(),
+                new FourOfAKindMatcher(),
                 new FullHouseMatcher(),
             };
             foreach (var matcher in matchers)
