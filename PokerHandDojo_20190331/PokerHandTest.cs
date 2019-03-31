@@ -5,6 +5,8 @@ namespace PokerHandDojo_20190331
     [TestClass]
     public class GameTest
     {
+        private const string FourOfAKindCase = "S2,H2,C2,D2,H3";
+        private const string HighCardCase = "D4,S6,S7,S8,S9";
         private Game _game = new Game();
 
         [TestMethod]
@@ -13,8 +15,8 @@ namespace PokerHandDojo_20190331
             _game.SetFirstPlayerName("James");
             _game.SetSecondPlayerName("Duncan");
 
-            _game.SetFirstPlayerHand("S2,H2,C2,D2,H3");
-            _game.SetSecondPlayerHand("D4,S6,S7,S8,S9");
+            _game.SetFirstPlayerHand(FourOfAKindCase);
+            _game.SetSecondPlayerHand(HighCardCase);
 
             var actual = _game.Result();
             Assert.AreEqual("James Win, Four of a kind.", actual);
