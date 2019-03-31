@@ -66,20 +66,4 @@ namespace PokerHandDojo_20190331
             return firstHandType == secondHandType;
         }
     }
-
-    public class HandTypeComparer : IComparer<HandType>
-    {
-        public int Compare(HandType x, HandType y)
-        {
-            return 1;
-            if (x == HandType.FourOfAKind && y == HandType.FullHouse)
-            {
-                return 1;
-            }
-            else
-            {
-                return -1;
-            }
-        }
-    }
 }
