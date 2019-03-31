@@ -13,12 +13,20 @@ namespace PokerHandDojo_20190331
         public void fourOfAKind_is_bigger_than_highCard()
         {
             GivenPlayerNames("James", "Duncan");
+            GivenPlayerHands(FourOfAKindCase, HighCardCase);
 
-            _game.SetFirstPlayerHand(FourOfAKindCase);
-            _game.SetSecondPlayerHand(HighCardCase);
+            ResultShouldBe("James Win, Four of a kind.");
+        }
 
-            var actual = _game.Result();
-            Assert.AreEqual("James Win, Four of a kind.", actual);
+        private void ResultShouldBe(string expected)
+        {
+            Assert.AreEqual(expected, _game.Result());
+        }
+
+        private void GivenPlayerHands(string firstPlayerHand, string secondPlayerHand)
+        {
+            _game.SetFirstPlayerHand(firstPlayerHand);
+            _game.SetSecondPlayerHand(secondPlayerHand);
         }
 
         private void GivenPlayerNames(string firstPlayerName, string secondPlayerName)
