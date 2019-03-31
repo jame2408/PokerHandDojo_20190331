@@ -7,6 +7,7 @@ namespace PokerHandDojo_20190331
     {
         private const string FourOfAKindCase = "S2,H2,C2,D2,H3";
         private const string HighCardCase = "D4,S6,S7,S8,S9";
+        private const string FullHouseCase = "H2,D2,C2,S3,D3";
         private Game _game = new Game();
 
         [TestMethod]
@@ -16,6 +17,15 @@ namespace PokerHandDojo_20190331
             GivenPlayerHands(FourOfAKindCase, HighCardCase);
 
             ResultShouldBe("James Win, Four of a kind.");
+        }
+
+        [TestMethod]
+        public void fullHouse_is_bigger_than_highCard()
+        {
+            GivenPlayerNames("James", "Duncan");
+            GivenPlayerHands(FullHouseCase, HighCardCase);
+            
+            ResultShouldBe("James Win, Full House.");
         }
 
         private void ResultShouldBe(string expected)
@@ -36,21 +46,7 @@ namespace PokerHandDojo_20190331
         }
 
         [TestMethod]
-        public void fullHouse_is_bigger_than_highCard()
-        {
-            var game = new Game();
-            game.SetFirstPlayerName("James");
-            game.SetSecondPlayerName("Duncan");
-
-            game.SetFirstPlayerHand("H2,D2,C2,S3,D3");
-            game.SetSecondPlayerHand("D4,S6,S7,S8,S9");
-
-            var actual = game.Result();
-            Assert.AreEqual("James Win, Full House.", actual);
-        }
-
-        [TestMethod]
-        public void furOfAKind_is_bigger_than_fullHouse()
+        public void fourOfAKind_is_bigger_than_fullHouse()
         {
             var game = new Game();
             game.SetFirstPlayerName("James");
