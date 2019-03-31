@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace PokerHandDojo_20190331
@@ -32,14 +31,6 @@ namespace PokerHandDojo_20190331
         public string Result()
         {
             return $"{_firstPlayerName} Win, Four of a kind.";
-        }
-    }
-
-    public class Hand
-    {
-        public Hand(IEnumerable<Card> cards)
-        {
-            throw new NotImplementedException();
         }
     }
 }
