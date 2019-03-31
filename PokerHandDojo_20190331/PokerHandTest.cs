@@ -5,17 +5,18 @@ namespace PokerHandDojo_20190331
     [TestClass]
     public class GameTest
     {
+        private Game _game = new Game();
+
         [TestMethod]
         public void fourOfAKind_is_bigger_than_highCard()
         {
-            var game = new Game();
-            game.SetFirstPlayerName("James");
-            game.SetSecondPlayerName("Duncan");
+            _game.SetFirstPlayerName("James");
+            _game.SetSecondPlayerName("Duncan");
 
-            game.SetFirstPlayerHand("S2,H2,C2,D2,H3");
-            game.SetSecondPlayerHand("D4,S6,S7,S8,S9");
+            _game.SetFirstPlayerHand("S2,H2,C2,D2,H3");
+            _game.SetSecondPlayerHand("D4,S6,S7,S8,S9");
 
-            var actual = game.Result();
+            var actual = _game.Result();
             Assert.AreEqual("James Win, Four of a kind.", actual);
         }
 
