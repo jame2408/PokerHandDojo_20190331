@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace PokerHandDojo_20190331
 {
-    public class HandKindMatcher : IHandKindMatcher
+    public class FourOfAKindMatcher : IHandKindMatcher
     {
         public bool Match(IEnumerable<Card> cards)
         {
