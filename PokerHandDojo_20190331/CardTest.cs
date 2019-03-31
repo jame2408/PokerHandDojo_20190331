@@ -13,10 +13,17 @@ namespace PokerHandDojo_20190331
         }
 
         [TestMethod]
-        public void can_parse_suit()
+        public void can_parse_suit_spade()
         {
             var card = new Card("S3");
             Assert.AreEqual(card.Suit, SuitType.Spade);
+        }
+
+        [TestMethod]
+        public void can_parse_suit_heart()
+        {
+            var card = new Card("H3");
+            Assert.AreEqual(card.Suit, SuitType.Heart);
         }
     }
 }

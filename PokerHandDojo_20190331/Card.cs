@@ -7,7 +7,16 @@ namespace PokerHandDojo_20190331
         public Card(string card)
         {
             Rank = Int32.Parse(card.Substring(1));
-            Suit = SuitType.Spade;
+            switch (card[0])
+            {
+                case 'S':
+                    Suit = SuitType.Spade;
+                    break;
+
+                case 'H':
+                    Suit = SuitType.Heart;
+                    break;
+            }
         }
 
         public int Rank { get; set; }
@@ -16,6 +25,7 @@ namespace PokerHandDojo_20190331
 
     public enum SuitType
     {
-        Spade
+        Spade,
+        Heart
     }
 }
