@@ -13,7 +13,7 @@ namespace PokerHandDojo_20190331
         }
 
         [TestMethod]
-        public void fullHouse_is_equals_fullHouse()
+        public void handType_is_compared_equally_with_self()
         {
             var handTypeComparer = new HandTypeComparer();
             var result = handTypeComparer.Compare(HandType.FullHouse, HandType.FullHouse);
