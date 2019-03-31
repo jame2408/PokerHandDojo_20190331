@@ -9,7 +9,14 @@ namespace PokerHandDojo_20190331
         public void can_parse_rank()
         {
             var card = new Card("S3");
-Assert.AreEqual(card.Rank,3);
+            Assert.AreEqual(card.Rank, 3);
+        }
+
+        [TestMethod]
+        public void can_parse_suit()
+        {
+            var card = new Card("S3");
+            Assert.AreEqual(card.Suit, SuitType.Spade);
         }
     }
 }
