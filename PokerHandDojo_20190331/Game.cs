@@ -15,6 +15,8 @@ namespace PokerHandDojo_20190331
                 {HandType.FullHouse,"Full House" }
             };
 
+        private Hand _secondPlayerHand;
+
         public void SetFirstPlayerName(string name)
         {
             _firstPlayerName = name;
@@ -33,10 +35,20 @@ namespace PokerHandDojo_20190331
 
         public void SetSecondPlayerHand(string hand)
         {
+            var cards = hand.Split(",", StringSplitOptions.RemoveEmptyEntries)
+                .Select(card => new Card(card));
+            _secondPlayerHand = new Hand(cards);
         }
 
         public string Result()
         {
+            if (_firstPlayerHand.HandType != _secondPlayerHand.HandType)
+            {
+                if (_firstPlayerHand.HandType == HandType.FourOfAKind)
+                {
+                    return $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
+                }
+            }
             return $"{_firstPlayerName} Win, {_handTypeLookup[_firstPlayerHand.HandType]}.";
         }
     }
