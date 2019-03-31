@@ -19,7 +19,6 @@ namespace PokerHandDojo_20190331
             Assert.AreEqual("James Win, Four of a kind.", actual);
         }
 
-        [Ignore]
         [TestMethod]
         public void fullHouse_is_bigger_than_highCard()
         {

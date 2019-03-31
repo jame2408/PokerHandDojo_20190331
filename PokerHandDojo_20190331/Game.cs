@@ -11,9 +11,9 @@ namespace PokerHandDojo_20190331
 
         private Dictionary<HandType, string> _handTypeLookup = new Dictionary<HandType, string>
             {
-                {HandType.FourOfAKind,"Four of a kind" }
-            }
-            ;
+                {HandType.FourOfAKind,"Four of a kind" },
+                {HandType.FullHouse,"Full House" }
+            };
 
         public void SetFirstPlayerName(string name)
         {
