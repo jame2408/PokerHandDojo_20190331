@@ -6,7 +6,7 @@ namespace PokerHandDojo_20190331
     public class HandTypeComparerTest
     {
         [TestMethod]
-        public void four_of_a_kind_is_bigger_than_fullhouse()
+        public void fourOfAKind_of_a_kind_is_bigger_than_fullHouse()
         {
             var result = new HandTypeComparer().Compare(HandType.FullHouse, HandType.FourOfAKind);
             Assert.IsTrue(result < 0);
