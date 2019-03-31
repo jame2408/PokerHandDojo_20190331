@@ -19,28 +19,4 @@ namespace PokerHandDojo_20190331
             Assert.AreEqual("James Win, Four of a kind.", actual);
         }
     }
-
-    public class Game
-    {
-        public void SetFirstPlayerName(string name)
-        {
-        }
-
-        public void SetSecondPlayerName(string name)
-        {
-        }
-
-        public void SetFirstPlayerHand(string hand)
-        {
-        }
-
-        public void SetSecondPlayerHand(string hand)
-        {
-        }
-
-        public string Result()
-        {
-            return "James Win, Four of a kind.";
-        }
-    }
 }
